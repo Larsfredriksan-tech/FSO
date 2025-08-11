@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="FSO – Full Service Oversikt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+
+    <title>FSO – Full Service Oversikt</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1976d2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <script>
+      // Prevent pinch zoom for app-like feel (optional)
+      document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
+    </script>
+  </head>
+  <body>
+    <script src="flutter.js" defer></script>
+    <script>
+      window.addEventListener('load', function(ev) {
+        _flutter.loader.loadEntrypoint({
+          serviceWorker: {
+            serviceWorkerVersion: Date.now().toString(),
+          },
+          onEntrypointLoaded: function(engineInitializer) {
+            engineInitializer.initializeEngine({ renderer: "html" }).then(function(appRunner) {
+              appRunner.runApp();
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
